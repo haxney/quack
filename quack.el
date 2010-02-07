@@ -512,12 +512,14 @@ do so), change the value of this variable, or see the Emacs documentation for
   :type  'string
   :group 'quack)
 
+;;;###autoload
 (defcustom quack-remap-find-file-bindings-p t
   "Whether to remap `find-file' key bindings to `quack-find-file'.
 The local map in Scheme Mode and Inferior Scheme Mode buffers is used."
   :type  'boolean
   :group 'quack)
 
+;;;###autoload
 (defcustom quack-global-menu-p t
   "*Whether to have a \"Quack\" menu always on the menu bar."
   :type  'boolean  :group 'quack)
@@ -1256,6 +1258,7 @@ For PLT-style when `quack-pltish-fontify-keywords-p' is non-nil."
 
 ;; Messages, Errors, Warnings:
 
+;;;###autoload
 (defmacro quack-activity (what &rest body)
   (let ((var-what (make-symbol "quack-activity-G-what")))
     `(let ((,var-what ,what))
@@ -1652,7 +1655,7 @@ For PLT-style when `quack-pltish-fontify-keywords-p' is non-nil."
       file)))
 
 ;; About:
-
+;;;###autoload
 (defun quack-about ()
   (interactive)
   (let* ((buf-name "*About Quack*")
@@ -1778,6 +1781,7 @@ For PLT-style when `quack-pltish-fontify-keywords-p' is non-nil."
 ;; TODO: Also write `quack-find-file-other-window' and
 ;;       `quack-find-file-other-frame' and steal appropriate key bindings.
 
+;;;###autoload
 (defun quack-find-file ()
   ;; TODO: Hangup/delay problems in mega-huge files.
   ;;
@@ -2037,6 +2041,7 @@ For PLT-style when `quack-pltish-fontify-keywords-p' is non-nil."
             "\\)?"                      ; #>6
             )))
 
+;;;###autoload
 (defun quack-toggle-lambda ()
   (interactive)
   (save-match-data
@@ -2128,6 +2133,7 @@ For PLT-style when `quack-pltish-fontify-keywords-p' is non-nil."
     (goto-char (match-end subexp))
     (delete-region (match-beginning subexp) (point))))
 
+;;;###autoload
 (defun quack-tidy-buffer ()
 
   ;; TODO: Make sure this works with odd eol conventions and the various
@@ -2247,6 +2253,7 @@ follows draft,since a final version supercedes a draft version).")
   (setq quack-srfi-completes-cache 'invalid)
   (setq quack-srfi-menu-cache      'invalid))
 
+;;;###autoload
 (defun quack-update-srfi-index ()
   (interactive)
   (quack-activity
@@ -2424,6 +2431,7 @@ follows draft,since a final version supercedes a draft version).")
                  (string-to-number
                   (quack-match-string-no-properties 1 str)))))))))
 
+;;;###autoload
 (defun quack-view-srfi (num)
   (interactive (list (quack-srfi-num-prompt "View SRFI number")))
   (when num
@@ -2751,6 +2759,7 @@ follows draft,since a final version supercedes a draft version).")
 
 ;; Manual Viewing:
 
+;;;###autoload
 (defun quack-view-manual (&optional sym)
   "View a manual."
   (interactive
@@ -2859,6 +2868,7 @@ Can be used in your `~/.emacs' file something like this:
 ;; TODO: Add doc lookup in PLT "doc.txt" files.  A little tricky.  Maybe make
 ;;       sure doc.txt is a long-term format first.
 
+;;;###autoload
 (defun quack-view-keyword-docs (keyword)
   ;; TODO: Don't prompt if all choices would result in the same URL.
   (interactive (list (quack-prompt-for-keyword "View docs for keyword")))
@@ -2968,6 +2978,7 @@ Can be used in your `~/.emacs' file something like this:
     (mapcar (function (lambda (program) (cons program nil)))
             program-list)))
 
+;;;###autoload
 (defadvice run-scheme (around quack-ad-run first nil activate)
   "Adds prompting for which Scheme interpreter program to run."
   ;; We don't want to prompt if there's already a Scheme running, but it's
@@ -3080,6 +3091,7 @@ Can be used in your `~/.emacs' file something like this:
 
 ;; Customize:
 
+;;;###autoload
 (defun quack-customize ()
   "Customize the Quack package."
   (interactive)
@@ -4010,7 +4022,9 @@ Can be used in your `~/.emacs' file something like this:
   ;;(quack-install-tool-bar)))
   )
 
+;;;###autoload
 (add-hook 'scheme-mode-hook          'quack-scheme-mode-hookfunc)
+;;;###autoload
 (add-hook 'inferior-scheme-mode-hook 'quack-inferior-scheme-mode-hookfunc)
 
 ;; Compilation Mode:
@@ -4141,6 +4155,7 @@ Can be used in your `~/.emacs' file something like this:
 
 ;; TODO: Make a menu map for pltfile-mode.
 
+;;;###autoload
 (defun quack-pltfile-mode ()
   (interactive)
   "Major mode for viewing PLT Scheme `.plt' package files.

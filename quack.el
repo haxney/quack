@@ -1,14 +1,14 @@
 ;;; quack.el --- enhanced support for editing and running Scheme code
 
 ;; Author: Neil Van Dyke <neil@neilvandyke.org>
-;; Version: 0.37
+;; Version: 0.37.1
 
 (defconst quack-copyright    "Copyright (C) 2002-2009 Neil Van Dyke")
 (defconst quack-copyright-2  "Portions Copyright (C) Free Software Foundation")
 ;; Emacs-style font-lock specs adapted from GNU Emacs 21.2 scheme.el.
 ;; Scheme Mode menu adapted from GNU Emacs 21.2 cmuscheme.el.
 
-(defconst quack-version      "0.37")
+(defconst quack-version      "0.37.1")
 (defconst quack-author-name  "Neil Van Dyke")
 (defconst quack-author-email "neil@neilvandyke.org")
 (defconst quack-web-page     "http://www.neilvandyke.org/quack/")
